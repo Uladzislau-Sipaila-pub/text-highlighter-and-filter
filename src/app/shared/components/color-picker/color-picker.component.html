@@ -1,0 +1,9 @@
+<div class="color-picker">
+  <app-color-button
+    *ngFor="let color of colors"
+    [color]="color.colorType"
+    [label]="color.label"
+    [isSelected]="isSelected(color)"
+    (selectColor)="select(color)">
+  </app-color-button>
+</div>

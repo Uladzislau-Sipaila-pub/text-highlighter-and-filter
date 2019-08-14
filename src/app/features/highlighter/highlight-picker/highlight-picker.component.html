@@ -1,0 +1,7 @@
+<div class="highlight-picker">
+  <app-color-picker
+    [selectedColors]="highlightedColors"
+    [colors]="colors"
+    (selectColor)="select($event.colorType)">
+  </app-color-picker>
+</div>

@@ -1,0 +1,15 @@
+@import '../../../shared/scss/variables/colors.scss';
+
+.filtered-list {
+  .red {
+    background-color: $primary-color-red;
+  }
+
+  .green {
+    background-color: $primary-color-green;
+  }
+
+  .yellow {
+    background-color: $primary-color-yellow;
+  }
+}

@@ -1,0 +1,5 @@
+<div class="filtered-list">
+  <p *ngFor="let highlight of list">
+    <span [ngClass]="highlight.colorType">{{highlight.text}}</span>
+  </p>
+</div>

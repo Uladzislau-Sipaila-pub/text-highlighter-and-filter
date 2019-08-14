@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "text-highlighter"
+    }
+  },
+  "defaultProject": "text-highlighter",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

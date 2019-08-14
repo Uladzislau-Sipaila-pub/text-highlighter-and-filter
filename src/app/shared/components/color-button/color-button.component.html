@@ -1,0 +1,10 @@
+<div class="color-button">
+  <button
+    aria-label="test"
+    class="button"
+    [class.selected]="isSelected"
+    [ngClass]="color"
+    (click)="select()"
+    (keyup.enter)="select()"
+  ></button>
+</div>

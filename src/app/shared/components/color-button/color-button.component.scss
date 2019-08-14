@@ -1,0 +1,26 @@
+@import '../../scss/variables/colors.scss';
+
+.color-button {
+  .button {
+    cursor: pointer;
+    height: 30px;
+    width: 45px;
+    border: 1px solid $primary-color-gray;
+
+    &.red {
+      background-color: $primary-color-red;
+    }
+
+    &.green {
+      background-color: $primary-color-green;
+    }
+
+    &.yellow {
+      background-color: $primary-color-yellow;
+    }
+
+    &.selected {
+      border: 2px solid $primary-color-gray;
+    }
+  }
+}

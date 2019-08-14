@@ -1,0 +1,23 @@
+@import '../../../shared/scss/variables/colors.scss';
+
+.highlighted-text {
+  padding: 10px;
+}
+
+::ng-deep .highlighted-green,
+::ng-deep .highlighted-yellow,
+::ng-deep .highlighted-red {
+  user-select: none;
+}
+
+::ng-deep .highlighted-red {
+  background-color: $primary-color-red;
+}
+
+::ng-deep .highlighted-green {
+  background-color: $primary-color-green;
+}
+
+::ng-deep .highlighted-yellow {
+  background-color: $primary-color-yellow;
+}
