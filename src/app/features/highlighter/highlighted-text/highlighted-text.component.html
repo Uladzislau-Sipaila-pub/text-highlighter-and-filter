@@ -16,6 +16,10 @@
     #highlightingArea
     placeholder="Type your text here"
     [(ngModel)]="currentValue"
+    (blur)="unselect()"
+    (focus)="unselect()"
+    (keydown)="unselect()"
+    (mousedown)="unselect()"
     (select)="highlight()"
     class="highlighted-textarea">
   </textarea>

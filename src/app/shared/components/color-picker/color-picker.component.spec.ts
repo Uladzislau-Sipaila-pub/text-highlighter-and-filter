@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Color } from '@shared/types/color';
+import { ColorType } from '@shared/types/color-type';
+
+import { ColorButtonStubComponent } from '../color-button/color-button.component.stub';
 
 import { ColorPickerComponent } from './color-picker.component';
-import { ColorButtonStubComponent } from '../color-button/color-button.component.stub';
-import { ColorType } from '@shared/types/color-type';
-import { Color } from '@shared/types/color';
 
-fdescribe('ColorPickerComponent', () => {
+describe('ColorPickerComponent', () => {
   let component: ColorPickerComponent;
   let fixture: ComponentFixture<ColorPickerComponent>;
 
@@ -34,7 +35,7 @@ fdescribe('ColorPickerComponent', () => {
       };
 
       component.select(selectedColor);
-      expect(selectColorEmitSpy).toHaveBeenCalledWith(selectedColor);
+      expect(selectColorEmitSpy).toHaveBeenCalledWith(ColorType.red);
     });
   });
 

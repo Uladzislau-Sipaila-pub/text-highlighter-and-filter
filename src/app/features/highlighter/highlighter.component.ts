@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
+import { select, Store } from '@ngrx/store';
+import { Color } from '@shared/types/color';
 import { ColorType } from '@shared/types/color-type';
-import { HighlighterState } from './store/highlighter.state';
-import { Store, select } from '@ngrx/store';
 import { Highlight } from '@shared/types/highlight';
+import { Observable } from 'rxjs';
+
 import { SelectHighlightAction } from './store/highlighter.actions';
 import { selectHighlights } from './store/highlighter.selectors';
-import { Observable } from 'rxjs';
+import { HighlighterState } from './store/highlighter.state';
 
 @Component({
   selector: 'app-highlighter',
@@ -15,6 +16,17 @@ import { Observable } from 'rxjs';
 })
 export class HighlighterComponent implements OnInit {
   highlights$: Observable<Highlight[]>;
+
+  colors: Color[] = [{
+    colorType: ColorType.red,
+    label: 'Red highlighter'
+  }, {
+    colorType: ColorType.yellow,
+    label: 'Yellow highlighter'
+  }, {
+    colorType: ColorType.green,
+    label: 'Green highlighter'
+  }];
 
   private draftHighlight: Highlight = null;
 

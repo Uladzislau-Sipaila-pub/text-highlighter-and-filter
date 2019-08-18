@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ColorButtonComponent } from './color-button.component';
 import { ColorType } from '@shared/types/color-type';
 
-fdescribe('ColorButtonComponent', () => {
+import { ColorButtonComponent } from './color-button.component';
+
+describe('ColorButtonComponent', () => {
   let component: ColorButtonComponent;
   let fixture: ComponentFixture<ColorButtonComponent>;
 

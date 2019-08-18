@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilterComponent } from './filter.component';
+import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../../shared/shared.module';
-import { FilterPickerComponent } from './filter-picker/filter-picker.component';
-import { StoreModule } from '@ngrx/store';
-import { filterReducer } from './store/filter.reducer';
+
+import { FilterComponent } from './filter.component';
 import { FilteredListComponent } from './filtered-list/filtered-list.component';
+import { filterReducer } from './store/filter.reducer';
 
 @NgModule({
   declarations: [
     FilterComponent,
-    FilterPickerComponent,
     FilteredListComponent
   ],
   imports: [

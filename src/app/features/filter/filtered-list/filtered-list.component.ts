@@ -1,6 +1,6 @@
-import { Component, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
-import { Highlight } from '@shared/types/highlight';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ColorType } from '@shared/types/color-type';
+import { Highlight } from '@shared/types/highlight';
 
 @Component({
   selector: 'app-filtered-list',
@@ -29,7 +29,7 @@ export class FilteredListComponent implements OnChanges {
     }
   }
 
-  updateList(filteredColors: ColorType[], highlights: Highlight[]): void {
+  private updateList(filteredColors: ColorType[], highlights: Highlight[]): void {
     this.list = highlights.filter(highlight => {
       return filteredColors.indexOf(highlight.colorType) > -1;
     });

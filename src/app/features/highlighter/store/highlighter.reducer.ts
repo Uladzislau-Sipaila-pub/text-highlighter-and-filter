@@ -1,5 +1,5 @@
+import { HighlighterAction, HighlighterActionTypes } from './highlighter.actions';
 import { HighlighterState, initialHighlighterState } from './highlighter.state';
-import { HighlighterActionTypes, HighlighterAction } from './highlighter.actions';
 
 export function highlighterReducer(state: HighlighterState = initialHighlighterState, action: HighlighterAction): HighlighterState {
   switch (action.type) {

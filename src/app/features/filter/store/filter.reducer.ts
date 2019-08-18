@@ -1,6 +1,7 @@
-import { FilterActionTypes, FilterAction } from './filter.actions';
-import { FilterState, initialFilterState } from './filter.state';
 import { ColorType } from '@shared/types/color-type';
+
+import { FilterAction, FilterActionTypes } from './filter.actions';
+import { FilterState, initialFilterState } from './filter.state';
 
 export function filterReducer(state: FilterState = initialFilterState, action: FilterAction): FilterState {
   switch (action.type) {

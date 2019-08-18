@@ -1,7 +1,8 @@
 <div class="highlighter">
-  <app-highlight-picker
+  <app-color-picker
+    [colors]="colors"
     (selectColor)="selectColor($event)">
-  </app-highlight-picker>
+  </app-color-picker>
   <app-highlighted-text
     [highlights]="highlights$ | async"
     (highlightText)="updateHighlight($event)">

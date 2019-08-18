@@ -1,9 +1,10 @@
 import { DomSanitizer } from '@angular/platform-browser';
-import { HighlightPipe } from './highlight.pipe';
 import { ColorType } from '@shared/types/color-type';
 import { Highlight } from '@shared/types/highlight';
 
-fdescribe('HighlightPipe', () => {
+import { HighlightPipe } from './highlight.pipe';
+
+describe('HighlightPipe', () => {
   let pipe: HighlightPipe;
 
   beforeEach(() => {

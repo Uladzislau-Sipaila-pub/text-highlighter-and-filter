@@ -1,10 +1,10 @@
 import {
   Component,
-  Output,
+  ElementRef,
   EventEmitter,
   Input,
+  Output,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
 import { Highlight } from '@shared/types/highlight';
 

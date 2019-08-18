@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Color } from '@shared/types/color';
 import { ColorType } from '@shared/types/color-type';
 
@@ -11,12 +11,12 @@ import { ColorType } from '@shared/types/color-type';
 export class ColorPickerComponent {
   @Input() colors: Color[] = [];
   @Input() selectedColors: ColorType[] = [];
-  @Output() selectColor = new EventEmitter<Color>();
+  @Output() selectColor = new EventEmitter<ColorType>();
 
   constructor() {}
 
   select(color: Color): void {
-    this.selectColor.emit(color);
+    this.selectColor.emit(color.colorType);
   }
 
   isSelected(color: Color): boolean {

@@ -1,14 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Store, MemoizedSelector } from '@ngrx/store';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { MemoizedSelector, Store } from '@ngrx/store';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { SharedTestingModule } from '@shared/shared-testing.module';
+import { ColorType } from '@shared/types/color-type';
 import { Highlight } from '@shared/types/highlight';
 
-import { HighlighterComponent } from './highlighter.component';
-import { HighlighterState } from './store/highlighter.state';
-import { selectHighlights } from './store/highlighter.selectors';
 import { HighlighterTestingModule } from './highlighter-testing.module';
+import { HighlighterComponent } from './highlighter.component';
+import { SelectHighlightAction } from './store/highlighter.actions';
+import { selectHighlights } from './store/highlighter.selectors';
+import { HighlighterState } from './store/highlighter.state';
 
-fdescribe('HighlighterComponent', () => {
+describe('HighlighterComponent', () => {
   let component: HighlighterComponent;
   let fixture: ComponentFixture<HighlighterComponent>;
   let store: MockStore<HighlighterState>;
@@ -20,7 +23,10 @@ fdescribe('HighlighterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HighlighterComponent ],
-      imports: [ HighlighterTestingModule ],
+      imports: [
+        HighlighterTestingModule,
+        SharedTestingModule
+      ],
       providers: [
         provideMockStore({initialState})
       ]
@@ -36,7 +42,44 @@ fdescribe('HighlighterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('#selectColor()', () => {
+    it('shouldn\'t dispatch color if draft highlight doesn\'t exist', () => {
+      const dispatch = spyOn(store, 'dispatch');
+      component['draftHighlight'] = null;
+      component.selectColor(ColorType.green);
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+
+    it('should dispatch color if draft highlight exist', () => {
+      const dispatch = spyOn(store, 'dispatch');
+      const draftHighlight: Highlight = {
+        positionEnd: 1,
+        positionStart: 0,
+        text: 'test'
+      };
+      const expectedHighlight: Highlight = {
+        ...draftHighlight,
+        colorType: ColorType.green
+      };
+      const action = new SelectHighlightAction(expectedHighlight);
+
+      component['draftHighlight'] = draftHighlight;
+      component.selectColor(ColorType.green);
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+
+  describe('#updateHighlight()', () => {
+    it('should update #draftHighlight', () => {
+      const highlight: Highlight = {
+        positionEnd: 1,
+        positionStart: 0,
+        text: 'test',
+        colorType: ColorType.green
+      };
+
+      component.updateHighlight(highlight);
+      expect(component['draftHighlight']).toBe(highlight);
+    });
   });
 });

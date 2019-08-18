@@ -4,7 +4,7 @@
     class="button"
     [class.selected]="isSelected"
     [ngClass]="color"
-    (click)="select()"
+    (mousedown)="select()"
     (keyup.enter)="select()"
   ></button>
 </div>

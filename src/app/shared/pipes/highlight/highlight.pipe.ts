@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
-import { Highlight } from '@shared/types/highlight';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ColorType } from '@shared/types/color-type';
+import { Highlight } from '@shared/types/highlight';
 
 @Pipe({
   name: 'highlight'

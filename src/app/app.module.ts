@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { appReducer } from './root-store/app.reducer';
 import { FilterModule } from './features/filter/filter.module';
 import { HighlighterModule } from './features/highlighter/highlighter.module';
+import { appReducer } from './root-store/app.reducer';
 
 
 @NgModule({

@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
-import { HighlightPickerStubComponent } from './highlight-picker/highlight-picker.component.stub';
+
 import { HighlightedTextStubComponent } from './highlighted-text/highlighted-text.component.stub';
+import { HighlighterStubComponent } from './highlighter.component.stub';
 
 @NgModule({
   declarations: [
-    HighlightPickerStubComponent,
-    HighlightedTextStubComponent
+    HighlightedTextStubComponent,
+    HighlighterStubComponent
   ],
   imports: [],
   exports: [
-    HighlightPickerStubComponent,
-    HighlightedTextStubComponent
+    HighlightedTextStubComponent,
+    HighlighterStubComponent
   ]
 })
 export class HighlighterTestingModule { }

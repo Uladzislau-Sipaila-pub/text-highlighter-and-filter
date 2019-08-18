@@ -1,11 +1,11 @@
 import {
-  Component,
   ChangeDetectionStrategy,
-  Output,
+  Component,
+  ElementRef,
   EventEmitter,
   Input,
+  Output,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
 import { Highlight } from '@shared/types/highlight';
 
@@ -24,6 +24,10 @@ export class HighlightedTextComponent {
   currentValue = '';
 
   constructor() {}
+
+  unselect(): void {
+    this.highlightText.emit(null);
+  }
 
   highlight(): void {
     const selection = this.highlightingArea.nativeElement as HTMLFormElement;

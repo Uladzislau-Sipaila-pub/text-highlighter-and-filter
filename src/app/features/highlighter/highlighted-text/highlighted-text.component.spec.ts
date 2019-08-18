@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { SharedTestingModule } from '@shared/shared-testing.module';
 
 import { HighlightedTextComponent } from './highlighted-text.component';
-import { SharedTestingModule } from '@shared/shared-testing.module';
-import { FormsModule } from '@angular/forms';
 
-fdescribe('HighlightedTextComponent', () => {
+describe('HighlightedTextComponent', () => {
   let component: HighlightedTextComponent;
   let fixture: ComponentFixture<HighlightedTextComponent>;
 

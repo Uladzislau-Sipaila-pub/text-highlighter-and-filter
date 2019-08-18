@@ -1,8 +1,9 @@
 <div class="filter">
-  <app-filter-picker
-    [filteredColors]="filteredColors$ | async"
+  <app-color-picker
+    [colors]="colors"
+    [selectedColors]="filteredColors$ | async"
     (selectColor)="selectColor($event)"
-  ></app-filter-picker>
+  ></app-color-picker>
   <app-filtered-list
     [filteredColors]="filteredColors$ | async"
     [highlights]="highlights$ | async"

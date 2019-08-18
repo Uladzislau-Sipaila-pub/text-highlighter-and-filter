@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { Color } from '@shared/types/color';
 import { ColorType } from '@shared/types/color-type';
-import { Store, select } from '@ngrx/store';
-import { FilterState } from './store/filter.state';
+import { Highlight } from '@shared/types/highlight';
+import { Observable } from 'rxjs';
+
+import { selectHighlights } from '../highlighter/store/highlighter.selectors';
+
 import { SelectColorAction } from './store/filter.actions';
 import { selectFilteredColors } from './store/filter.selectors';
-import { selectHighlights } from '../highlighter/store/highlighter.selectors';
-import { Highlight } from '@shared/types/highlight';
+import { FilterState } from './store/filter.state';
 
 @Component({
   selector: 'app-filter',
@@ -16,6 +19,17 @@ import { Highlight } from '@shared/types/highlight';
 export class FilterComponent implements OnInit {
   filteredColors$: Observable<ColorType[]>;
   highlights$: Observable<Highlight[]>;
+
+  colors: Color[] = [{
+    colorType: ColorType.red,
+    label: 'Red color filter'
+  }, {
+    colorType: ColorType.yellow,
+    label: 'Yellow color filter'
+  }, {
+    colorType: ColorType.green,
+    label: 'Green color filter'
+  }];
 
   constructor(
     private store: Store<FilterState>

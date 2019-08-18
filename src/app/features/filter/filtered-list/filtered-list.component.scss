@@ -1,6 +1,10 @@
 @import '../../../shared/scss/variables/colors.scss';
 
 .filtered-list {
+  border: 1px solid $primary-color-gray;
+  margin: 1rem 0;
+  padding: 0.5rem;
+
   .red {
     background-color: $primary-color-red;
   }
