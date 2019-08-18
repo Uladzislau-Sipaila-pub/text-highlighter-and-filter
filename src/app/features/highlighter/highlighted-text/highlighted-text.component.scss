@@ -1,13 +1,59 @@
 @import '../../../shared/scss/variables/colors.scss';
 
 .highlighted-text {
-  padding: 10px;
-}
+  position: relative;
+  margin: 1rem 0 2rem;
 
-::ng-deep .highlighted-green,
-::ng-deep .highlighted-yellow,
-::ng-deep .highlighted-red {
-  user-select: none;
+  .highlighted-textarea,
+  .highlighted-area {
+    font-size: 1rem;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    background: transparent;
+    font-family: monospace;
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+
+  .highlighted-area {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 4rem;
+    background: transparent;
+    color: transparent;
+    white-space: pre-wrap;
+  }
+
+  .highlighted-textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% + 1rem);
+    z-index: 15;
+    resize: none;
+    border: 1px solid $primary-color-gray;
+  }
+
+  .highlights {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    .highlight {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: transparent;
+    }
+  }
 }
 
 ::ng-deep .highlighted-red {

@@ -1,9 +1,9 @@
 <div class="highlighter">
   <app-highlight-picker
-    (selectColor)="selectColor($event)"
-  ></app-highlight-picker>
+    (selectColor)="selectColor($event)">
+  </app-highlight-picker>
   <app-highlighted-text
     [highlights]="highlights$ | async"
-    (highlightText)="highlightText($event)"
-  ></app-highlighted-text>
+    (highlightText)="updateHighlight($event)">
+  </app-highlighted-text>
 </div>

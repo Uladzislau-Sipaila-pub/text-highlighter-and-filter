@@ -1,6 +1,8 @@
 import { ColorType } from './color-type';
 
 export interface Highlight {
-  colorType: ColorType;
   text: string;
+  positionStart: number;
+  positionEnd: number;
+  colorType?: ColorType;
 }

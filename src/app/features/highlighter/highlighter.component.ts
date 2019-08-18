@@ -15,7 +15,8 @@ import { Observable } from 'rxjs';
 })
 export class HighlighterComponent implements OnInit {
   highlights$: Observable<Highlight[]>;
-  private draftText = '';
+
+  private draftHighlight: Highlight = null;
 
   constructor(
     private store: Store<HighlighterState>
@@ -25,18 +26,18 @@ export class HighlighterComponent implements OnInit {
     this.highlights$ = this.store.pipe(select(selectHighlights));
   }
 
-  selectColor(color: ColorType): void {
-    if (this.draftText) {
+  selectColor(colorType: ColorType): void {
+    if (this.draftHighlight) {
       const highlight: Highlight = {
-        text: this.draftText,
-        colorType: color
+        ...this.draftHighlight,
+        colorType
       };
 
       this.store.dispatch(new SelectHighlightAction(highlight));
     }
   }
 
-  highlightText(text: string): void {
-    this.draftText = text;
+  updateHighlight(highlight: Highlight): void {
+    this.draftHighlight = highlight;
   }
 }

@@ -1,14 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HighlightPickerComponent } from './highlight-picker.component';
+import { SharedTestingModule } from '@shared/shared-testing.module';
+import { ColorType } from '@shared/types/color-type';
 
-describe('HighlightPickerComponent', () => {
+fdescribe('HighlightPickerComponent', () => {
   let component: HighlightPickerComponent;
   let fixture: ComponentFixture<HighlightPickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HighlightPickerComponent ]
+      declarations: [ HighlightPickerComponent ],
+      imports: [ SharedTestingModule ]
     })
     .compileComponents();
   }));
@@ -19,7 +22,11 @@ describe('HighlightPickerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('#select()', () => {
+    it('should emit #selectColor with current color value', () => {
+      const selectColorEmitSpy = spyOn(component.selectColor, 'emit');
+      component.select(ColorType.red);
+      expect(selectColorEmitSpy).toHaveBeenCalledWith(ColorType.red);
+    });
   });
 });

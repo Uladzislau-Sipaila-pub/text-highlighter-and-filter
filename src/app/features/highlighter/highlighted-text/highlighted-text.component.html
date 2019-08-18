@@ -1,9 +1,22 @@
 <div class="highlighted-text">
-  <div
-    #highlightingArea
-    [innerHtml]="defaultValue | highlight : highlights"
-    class="highlighting-area"
-    [hidden]="editable"
-    (mouseup)="highlight($event)">
+  <div class="highlights">
+    <div
+      *ngFor="let highlight of highlights"
+      [innerHtml]="currentValue | highlight : highlight"
+      class="highlight highlighted-area">
+    </div>
   </div>
+
+  <div
+    [innerHtml]="currentValue"
+    class="highlighted-area">
+  </div>
+
+  <textarea
+    #highlightingArea
+    placeholder="Type your text here"
+    [(ngModel)]="currentValue"
+    (select)="highlight()"
+    class="highlighted-textarea">
+  </textarea>
 </div>
